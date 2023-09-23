@@ -96,3 +96,23 @@
 .results-container .user-answer {
     font-weight: bold;
 }
+
+.back-button {
+    padding: 16px;
+}
+
+.back-button button {
+    background-color: var(--cool-blue);
+    color: var(--light-gray);
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 24px;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 16px;
+    cursor: pointer;
+}
+
+.back-button button:hover {
+    opacity: .8;
+}

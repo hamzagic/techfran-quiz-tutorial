@@ -1,0 +1,7 @@
+{
+    "emmet.triggerExpansionOnTab": true,
+    "editor.tabSize": 8,
+    "emmet.includeLanguages": {
+        "\"javascript\"": "[\"javascript\", \"javascriptreact\"]"
+    }
+}

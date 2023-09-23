@@ -117,6 +117,9 @@ function App() {
             </p>
           </div>
         )}
+        <div className="back-button">
+          <button>Back to Main</button>
+        </div>
       </div>
     );
   }
@@ -141,33 +144,6 @@ function App() {
       <button onClick={handleNext} className='next-button'>
         {currentQuestion === questions.length - 1 ? 'Finish Quiz' : 'Next'}
       </button>
-
-
-      {/* <div className='options-container'>
-        <div className='option-item'>
-          <input type="checkbox" id="1" name="answer-1" onChange={() => {}} checked />
-          <label htmlFor="answer-1">Answer 1</label>
-        </div>
-
-        <div className='option-item'>
-          <input type="checkbox" id="2" name="answer-2"  onChange={() => {}}/>
-          <label htmlFor="answer-2">Answer 2</label>
-        </div>
-
-        <div className='option-item'>
-          <input type="checkbox" id="3" name="answer-3" onChange={() => {}} />
-          <label htmlFor="answer-3">Answer 3</label>
-        </div>
-
-        <div className='option-item'>
-          <input type="checkbox" id="4" name="answer-4" onChange={() => {}} />
-          <label htmlFor="answer-4">Answer 4</label>
-        </div>
-      </div> */}
-
-      {/* <div className='next-button'>
-        <button>Next</button>
-      </div> */}
     </div>
   );
 }
