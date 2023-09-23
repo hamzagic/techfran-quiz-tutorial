@@ -74,7 +74,7 @@ function App() {
   const [showError, setShowError] = useState(false);
 
   useEffect(() => {
-  },[answers]);
+  }, [answers]);
 
   const handleAnswerClicked = (index) => {
     setSelectedAnswer(index);
@@ -82,7 +82,7 @@ function App() {
   }
 
   const handleNext = () => {
-    if(selectedAnswer === null) {
+    if (selectedAnswer === null) {
       setShowError(true);
       return;
     }
@@ -97,20 +97,23 @@ function App() {
     }
   }
 
-  if(answers.length === questions.length) {
-    const correctAnswers = answers.filter((answer, index) => 
-    questions[index].answerOptions[answer].isCorrect
+  if (answers.length === questions.length) {
+    const correctAnswers = answers.filter((answer, index) =>
+      questions[index].answerOptions[answer].isCorrect
     ).length;
-    return(
-      <div>
-        <h1>Results</h1>
-        <h2>Your score: {correctAnswers} out of {questions.length}</h2>
-        {questions.map((q, index) => 
-          <div key={index}>
-            <p>{q.questionText}</p>
-            <p>Your answer: {q.answerOptions[answers[index]].answerText}</p>
-            <p>Correct Answer:
-              {q.answerOptions.find((option) => option.isCorrect).answerText}
+    return (
+      <div className="main results">
+        <div className="quiz-title-container results">
+          <h1>Results</h1>
+        </div>
+        <div>
+          <h2>Your score: {correctAnswers} out of {questions.length}</h2>
+        </div>
+        {questions.map((q, index) =>
+          <div key={index} className="results-container">
+            <p className="question">{q.questionText}</p>
+            <p className="user-answer">Your answer: {q.answerOptions[answers[index]].answerText}</p>
+            <p className="correct-answer">Correct Answer: {q.answerOptions.find((option) => option.isCorrect).answerText}
             </p>
           </div>
         )}
