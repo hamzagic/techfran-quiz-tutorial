@@ -1,13 +1,5 @@
-import './App.css';
-import { useState, useEffect } from 'react';
-import Header from './components/header/Header';
-import Question from './components/question/Question';
-import Alternative from './components/alternatives/Alternative';
-import AlternativesContainer from './components/alternatives/AlternativesContainer';
-import ErrorMessage from './components/error_message/ErrorMessage';
-import Button from './components/button/Button';
-import Score from './components/results/Score';
-import ResultComparison from './components/results/ResultComparison';
+import './App2.css'
+import { useState, useEffect } from 'react'
 
 const questions = [
     {
@@ -95,60 +87,80 @@ function App() {
         }
 
         setAnswers([...answers, selectedAnswer])
+        // setAnswers((prevAnswers) => [...prevAnswers, selectedAnswer]);
         setSelectedAnswer(null)
 
         if (currentQuestion < questions.length - 1) {
             setCurrentQuestion(currentQuestion + 1)
+            // setCurrentQuestion((prevQuestion) => prevQuestion + 1);
         }
     }
 
     if (answers.length === questions.length) {
         const correctAnswers = answers.filter(
             (answer, index) => questions[index].answerOptions[answer].isCorrect
-        ).length;
-
+        ).length
         return (
             <div className="main results">
-                <Header title="Results" altClass="results" />
-                <Score correct={correctAnswers} total={questions.length} />
+                <div className="quiz-title-container results">
+                    <h1>Results</h1>
+                </div>
+                <div>
+                    <h2>
+                        Your score: {correctAnswers} out of {questions.length}
+                    </h2>
+                </div>
                 {questions.map((q, index) => (
-                   <ResultComparison
-                    index={index}
-                    question={q.questionText}
-                    answer={q.answerOptions[answers[index]].answerText}
-                    correctAnswer={q.answerOptions.find((option) => option.isCorrect).answerText} 
-                  />
+                    <div key={index} className="results-container">
+                        <p className="question">{q.questionText}</p>
+                        <p className="user-answer">
+                            Your answer:{' '}
+                            {q.answerOptions[answers[index]].answerText}
+                        </p>
+                        <p className="correct-answer">
+                            Correct Answer:{' '}
+                            {
+                                q.answerOptions.find(
+                                    (option) => option.isCorrect
+                                ).answerText
+                            }
+                        </p>
+                    </div>
                 ))}
-                <Button 
-                  handleNext={() => {}}
-                  text="Back to Main"
-                />
+                <div className="back-button">
+                    <button>Back to Main</button>
+                </div>
             </div>
         )
     }
 
     return (
         <div className="main">
-            <Header title="Super Quiz!" />
-            <Question question={questions[currentQuestion].questionText} />
-            <AlternativesContainer>
+            <div className="quiz-title-container">
+                <h1>Super Quiz</h1>
+            </div>
+            <div className="question-container">
+                <h3>{questions[currentQuestion].questionText}</h3>
+            </div>
+            <div className="answers-container">
                 {questions[currentQuestion].answerOptions.map(
                     (answerOption, index) => (
-                        <Alternative
-                            clickHandler={() => handleAnswerClicked(index)}
-                            answer={answerOption.answerText}
-                        />
+                        <button
+                            key={index}
+                            onClick={() => handleAnswerClicked(index)}
+                        >
+                            {answerOption.answerText}
+                        </button>
                     )
                 )}
-            </AlternativesContainer>
+            </div>
 
-            {showError && <ErrorMessage text="Please select an answer!" />}
-            <Button 
-              handleNext={handleNext} 
-              text={currentQuestion === questions.length - 1
+            {showError && <p>Please select an answer!</p>}
+            <button onClick={handleNext} className="next-button">
+                {currentQuestion === questions.length - 1
                     ? 'Finish Quiz'
-                    : 'Next'} 
-            />
+                    : 'Next'}
+            </button>
         </div>
     )
 }

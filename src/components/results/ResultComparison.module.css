@@ -1,0 +1,16 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0;
+}
+
+.container .question {
+    font-size: 24px;
+    border-bottom: 1px solid var(--cool-blue);
+}
+
+.container .userAnswer {
+    font-weight: bold;
+}

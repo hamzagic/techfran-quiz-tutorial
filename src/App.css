@@ -17,28 +17,27 @@
     margin: 0 auto;
 }
 
-.quiz-title-container {
+/* .quiz-title-container {
     background-color: var(--deep-purple);
     color: var(--light-gray);
     width: 100%;
     text-align: center;
     border-radius: 8px;
-}
+} */
 
-.question-container {
+/* .question-container {
     padding: 10px 0;
-    /* background-color: var(--salmon); */
-}
+} */
 
-.answers-container {
+/* .answers-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
     row-gap: 10px;
     width: 70%;
-}
+} */
 
-.answers-container button {
+/* .answers-container button {
     border: none;
     padding: 8px 16px;
     border-radius: 8px;
@@ -48,17 +47,17 @@
     font-size: 20px;
     line-height: 24px;
     cursor: pointer;
-}
+} */
 
-.answers-container button:focus {
+/* .answers-container button:focus {
     background-color: var(--salmon);
-}
+} */
 
-.answers-container button:hover {
+/* .answers-container button:hover {
     opacity: .8;
-}
+} */
 
-.next-button {
+/* .next-button {
     background-color: var(--cool-blue);
     color: var(--light-gray);
     font-weight: bold;
@@ -69,39 +68,39 @@
     margin-top: 60px;
     padding: 12px 24px;
     cursor: pointer;
-}
+} */
 
 .main.results {
     background-color: var(--salmon);
     border-radius: 0 0 8px 8px;
 }
 
-.quiz-title-container.results {
+/* .quiz-title-container.results {
     border-radius: 8px 8px 0 0;
-}
+} */
 
-.results-container {
+/* .results-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 10px 0;
-}
+} */
 
-.results-container .question {
+/* .results-container .question {
     font-size: 24px;
     border-bottom: 1px solid var(--cool-blue);
-}
+} */
 
-.results-container .user-answer {
+/* .results-container .user-answer {
     font-weight: bold;
-}
+} */
 
-.back-button {
+/* .back-button {
     padding: 16px;
-}
+} */
 
-.back-button button {
+/* .back-button button {
     background-color: var(--cool-blue);
     color: var(--light-gray);
     font-weight: bold;
@@ -111,8 +110,8 @@
     border-radius: 8px;
     padding: 8px 16px;
     cursor: pointer;
-}
+} */
 
-.back-button button:hover {
+/* .back-button button:hover {
     opacity: .8;
-}
+} */
