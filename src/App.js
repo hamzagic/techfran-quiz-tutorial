@@ -85,8 +85,12 @@ function App() {
                 />
             )}
 
-            {answers.length == questions.length && (
-                <Results questions={questions} answers={answers} setAnswers={setAnswers} />
+            {answers.length === questions.length && (
+                <Results 
+                  questions={questions} 
+                  answers={answers} 
+                  setAnswers={setAnswers} 
+                />
             )}
         </>
     );
