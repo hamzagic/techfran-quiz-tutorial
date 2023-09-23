@@ -1,13 +1,14 @@
-import './App.css';
-import { useState, useEffect } from 'react';
-import Header from './components/header/Header';
-import Question from './components/question/Question';
-import Alternative from './components/alternatives/Alternative';
-import AlternativesContainer from './components/alternatives/AlternativesContainer';
-import ErrorMessage from './components/error_message/ErrorMessage';
-import Button from './components/button/Button';
-import Score from './components/results/Score';
-import ResultComparison from './components/results/ResultComparison';
+import './App.css'
+import { useState, useEffect } from 'react'
+import Container from './components/container/Container'
+import Header from './components/header/Header'
+import Question from './components/question/Question'
+import Alternative from './components/alternatives/Alternative'
+import AlternativesContainer from './components/alternatives/AlternativesContainer'
+import ErrorMessage from './components/error_message/ErrorMessage'
+import Button from './components/button/Button'
+import Score from './components/results/Score'
+import ResultComparison from './components/results/ResultComparison'
 
 const questions = [
     {
@@ -105,30 +106,30 @@ function App() {
     if (answers.length === questions.length) {
         const correctAnswers = answers.filter(
             (answer, index) => questions[index].answerOptions[answer].isCorrect
-        ).length;
+        ).length
 
         return (
-            <div className="main results">
+            <Container results={true}>
                 <Header title="Results" altClass="results" />
                 <Score correct={correctAnswers} total={questions.length} />
                 {questions.map((q, index) => (
-                   <ResultComparison
-                    index={index}
-                    question={q.questionText}
-                    answer={q.answerOptions[answers[index]].answerText}
-                    correctAnswer={q.answerOptions.find((option) => option.isCorrect).answerText} 
-                  />
+                    <ResultComparison
+                        index={index}
+                        question={q.questionText}
+                        answer={q.answerOptions[answers[index]].answerText}
+                        correctAnswer={
+                            q.answerOptions.find((option) => option.isCorrect)
+                                .answerText
+                        }
+                    />
                 ))}
-                <Button 
-                  handleNext={() => {}}
-                  text="Back to Main"
-                />
-            </div>
+                <Button handleNext={() => {}} text="Back to Main" />
+            </Container>
         )
     }
 
     return (
-        <div className="main">
+        <Container>
             <Header title="Super Quiz!" />
             <Question question={questions[currentQuestion].questionText} />
             <AlternativesContainer>
@@ -143,13 +144,15 @@ function App() {
             </AlternativesContainer>
 
             {showError && <ErrorMessage text="Please select an answer!" />}
-            <Button 
-              handleNext={handleNext} 
-              text={currentQuestion === questions.length - 1
-                    ? 'Finish Quiz'
-                    : 'Next'} 
+            <Button
+                handleNext={handleNext}
+                text={
+                    currentQuestion === questions.length - 1
+                        ? 'Finish Quiz'
+                        : 'Next'
+                }
             />
-        </div>
+        </Container>
     )
 }
 
