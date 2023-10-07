@@ -4,9 +4,10 @@ import Score from "../../components/results/Score";
 import ResultComparison from "../../components/results/ResultComparison";
 import Button from "../../components/button/Button";
 
-const Results = ({ answers, questions, setAnswers }) => {
+const Results = ({ answers, questions, setAnswers, setIsStarted }) => {
     const resetQuiz = () => {
         setAnswers([]);
+        setIsStarted(false);
     }
 
     if (answers.length === questions.length) {
@@ -16,7 +17,7 @@ const Results = ({ answers, questions, setAnswers }) => {
 
         return (
             <Container results={true}>
-                <Header title="Results" altClass="results" />
+                <Header title="Resultado" altClass="results" />
                 <Score correct={correctAnswers} total={questions.length} />
                 {questions.map((q, index) => (
                     <ResultComparison
@@ -30,7 +31,7 @@ const Results = ({ answers, questions, setAnswers }) => {
                         }
                     />
                 ))}
-                <Button handleNext={resetQuiz} text="Back to Main" />
+                <Button handleNext={resetQuiz} text="Voltar ao Início" />
             </Container>
         )
     }

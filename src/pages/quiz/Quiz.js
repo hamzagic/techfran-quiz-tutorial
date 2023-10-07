@@ -50,13 +50,13 @@ const Quiz = ({questions, answers, setAnswers}) => {
                 )}
             </AlternativesContainer>
 
-            {showError && <ErrorMessage text="Please select an answer!" />}
+            {showError && <ErrorMessage text="Selecione uma alternativa!" />}
             <Button
                 handleNext={handleNext}
                 text={
                     currentQuestion === questions.length - 1
-                        ? 'Finish Quiz'
-                        : 'Next'
+                        ? 'Finalizar Quiz'
+                        : 'Continuar'
                 }
             />
         </Container>
